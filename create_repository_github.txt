@@ -1,5 +1,7 @@
 Create repository github
 
+repository para colocar todos os files criados
+
 website
 	create a new repository
 	Turtles_Data_Analysis_Storage
@@ -12,7 +14,73 @@ website
 echo "# Turtles_Data_Analysis_Storage" >> README.md
 git init
 git add README.md
-git commit -m "first commit"
+git commit -m "1st commit"
 git branch -M main
 git remote add origin https://github.com/Juunicacio/Turtles_Data_Analysis_Storage.git
 git push -u origin main
+
+DEU CERTO
+
+para voltar nesse repository vindo do segundo:
+git remote set-url origin https://github.com/Juunicacio/Turtles_Data_Analysis_Storage.git
+
+
+para controlar em qual repository eu estou:
+git remote -v update
+____________________________________________________
+
+repository para colocar os mais importantes. para usar como referencia no trabalho
+
+website
+	create a new repository
+	Turtles_Reference_dataset_files
+	
+	without readme
+	
+	https://github.com/Juunicacio/Turtles_Reference_dataset_files.git
+	
+echo "# Turtles_Reference_dataset_files" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Juunicacio/Turtles_Reference_dataset_files.git
+git push -u origin main
+
+fatal: remote origin already exists.
+origin ja tem, tenho q:
+
+git remote set-url origin https://github.com/Juunicacio/Turtles_Reference_dataset_files.git
+then
+git push -u origin main
+
+deu certo, mas me salvou todos os files da cartela, nao so Readme.md e outro q eu tinha add.
+
+
+But if you want to remove the file only from the Git repository and not remove it from the filesystem, use:
+
+git rm --cached <file1>.txt
+git commit -m "remove file1.txt"
+
+And to push changes to remote repo
+git push -u origin main
+
+nao funcionou muito bem, pq removi, mas removi do primeiro repository, como eu fiz o push no segundo, nao me retirou
+complatamente do primeiro repository, mas se eu fizesse push no primeiro, me tiraria de la.
+acabei eliminando file por file q nao me serviva diretamente do site.
+
+quando eu fiz
+		git remote -v update
+		
+		
+https://jigarius.com/blog/multiple-git-remote-repositories
+Two Minute Version
+Define a git remote which will point to multiple git remotes.
+Say, we call it “all”: git remote add all REMOTE-URL-1.
+Register 1st push URL: git remote set-url --add --push all REMOTE-URL-1.
+Register 2nd push URL: git remote set-url --add --push all REMOTE-URL-2.
+Push a branch to all the remotes with git push all BRANCH – replace BRANCH with a real branch name.
+You cannot pull from multiple remotes, but you can fetch updates from multiple remotes with git fetch --all.
+
+
+

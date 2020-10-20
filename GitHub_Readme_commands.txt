@@ -1,4 +1,13 @@
 Resumo:
+
+
+aqui eu so aprendi algumas coisas, nao deu certo o q eu queria.
+pra ver como criei repository atraves do site e enviei os files atraves de comando, ver o file de texto:
+create_repository_github.txt
+
+
+
+
 19/10/2020
 todas as tentativas de fazer login e criar novo repository atraves de comando falharam. Continuar tentando um outro dia.
 
@@ -28,6 +37,7 @@ on command write: git clone https://github.com/Juunicacio/Storage-Data-Analysis-
 it will create a new folder, mas esse novo folder è o seu clone do repository onde vc tem q salvar os seus files,
 agr tenho q passar todos os meus dados de um repository à outro
 
+Create a pull request:
 fiz >git pull origin master
 deu >refusing to merge unrelated histories
 fui na pasta onde eu queria salvar o pull do master, da onde eu ja tinha salvo o main e Eliminei a cartela .git
@@ -35,9 +45,31 @@ fui na pasta onde eu queria salvar o pull do master, da onde eu ja tinha salvo o
 fiz de novo >git pull origin master
 deu > * branch            master     -> FETCH_HEAD
 Already up to date.
-nada da certo
+
+DEU CERTO, agr quando eu fizer qualquer alteracao, vai me aparecer la no site
+ok, mais ainda eh uma linha diferente do main
 
 https://opensource.com/article/19/7/create-pull-request-github
+
+tentei fazer do zero, agr salvando em main, mas tive q cancelar a cartela git da pasta
+-git init
+-git add -A (to add all the files that are in the same place where you are creating the git)
+-git commit -m "
+-git pull --rebase
+There is no tracking information for the current branch.
+Please specify which branch you want to rebase against.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+	
+	git pull origin/master
+
+git fetch origin
+
 
 
 
