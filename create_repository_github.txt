@@ -1,0 +1,18 @@
+Create repository github
+
+website
+	create a new repository
+	Turtles_Data_Analysis_Storage
+	
+	without readme
+	
+	https://github.com/Juunicacio/Turtles_Data_Analysis_Storage.git
+	
+	create a new repository on the command line
+echo "# Turtles_Data_Analysis_Storage" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Juunicacio/Turtles_Data_Analysis_Storage.git
+git push -u origin main

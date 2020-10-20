@@ -1,0 +1,26 @@
+20/10/2020
+
+tenho o file original com a tabela com todas as colunas e linhas
+
+	- SALVAR O FILE ORIGINAL COMO CSV TRAMITE CODIGO, QUE SERVIRA COMO PONTO DE REFERIMENTO. OVERALL DE TUDO. --ok
+	'Dataframe_Overall_Tag_333A_Data.csv'
+		
+	- conseguir selecionar somente as colunas relativas ao GPS -- OK
+	- antes de salvar qualquer filtracao nos dados, depois que o programa reconhecer as linhas com dados NaN (nullo) em coordenadas geograficas, SALVAR UM FILE COM A LINHA COMPLETA DESSES DADOS EM NaN PRA VER DE Q DADOS SE TRATAM.
+		- aqui pode ser criado um grafico, com a quantidade total de dados racoltos entre a data tal e tal, quantos dados eram de coordenadas, quantos de iridium, quantos de temperatura
+	- SALVAR UM FILE SOMENTE COM OS DADOS REFERENTE AO GPS
+	- depois da conta para calcular o Length, os km percorridos percorridos, SALVAR FILE COM A COLUNA A MAIS ONDE INDICA ESSES VALORES. 
+- domanda = quando eu calculei a distancia, era calculada em km ou em metros, o resultado eu usei na formula pra calcular a velocidade: speed= distance/ tempo2-tempo1. pq o tempo puis em segundos, ver se tenho q mudar a distancia tbm.
+	- se a distancia em km influenciar a conta, SALVAR UMA COLUNA COM OS VALORES DE LENGTH EM METROS E TENTAR USAR NA FORMULA QUE CALCULA A VELOCIDADE.
+	- SALVAR UM FILE COM A COLUNA DOS SEGUNDOS, UNIX TIME
+	- depois de realizar a funcao q me separa as linhas com velocidade maior q 1,111, CRIAR UM FILE com as linhas completas dos pontos retirados. ver a qualidade do sinal GPS desse pontos eliminados.
+		- aqui pode ser criado outro grafico com o total de sinais GPS, quantos foram eliminados a partir da filtracao com a velocidade.
+		- aqui pode ser criado outro grafico q me diz a quantidade de sinais recebidos por dia, durante todos os meses da base dos dados.
+		
+		
+		- proximo step.
+	- iniciar com os dados de profundidade.
+	- ler o file original. OVERALL.
+	- selecionar colunas respectivas aos dados de profundidade.
+	
+	

@@ -1,0 +1,410 @@
+import pandas as pd
+
+df_xlsx = pd.read_excel('..\Dati_Originali_Prof\Tag 710333A 20 Sept.xlsx')
+df_xlsx.to_csv('Tag_710333A_20_Sept.csv', index=False)
+
+df = pd.read_csv('Tag_710333A_20_Sept.csv')
+
+#df = pd.write_csv('Filtered_Tag_710333A_Sept')
+#df = pd.read_csv('Tag_710333A_20_Sept.csv')
+#df.head = df.head(23)
+#print (df.columns)
+#header_row = 23
+#df = df.iloc[header_row]
+
+#header_row = 23
+#df = df[header_row:]
+df.to_csv('modified_333A_Sept.csv')
+#df = pd.read_csv('modified_333A_Sept')
+df.reset_index(drop=true, inplace=True)
+header_row = df.loc[21]
+print(header_row)
+
+import pandas as pd
+
+df_xlsx = pd.read_excel('..\Dati_Originali_Prof\Tag 710333A 20 Sept.xlsx')
+df_xlsx.to_csv('Tag_710333A_20_Sept.csv', index=False)
+
+df = pd.read_csv('Tag_710333A_20_Sept.csv')
+
+#df = pd.write_csv('Filtered_Tag_710333A_Sept')
+#df = pd.read_csv('Tag_710333A_20_Sept.csv')
+#df.head = df.head(23)
+#print (df.columns)
+#header_row = 23
+#df = df.iloc[header_row]
+
+df.to_csv('modified_333A_Sept.csv', index=False)
+#df = pd.read_csv('modified_333A_Sept')
+df.reset_index(drop=True, inplace=True)
+header_row = df.loc[21]
+print(df[21:])
+df.rename(columns = header_row)
+header = header_row
+print(df[21:])
+#print(header_row)
+
+
+import pandas as pd
+
+df_xlsx = pd.read_excel('..\Dati_Originali_Prof\Tag 710333A 20 Sept.xlsx')
+df_xlsx.to_csv('Tag_710333A_20_Sept.csv', index=False)
+
+df = pd.read_csv('Tag_710333A_20_Sept.csv', index_col=False)
+
+#df = pd.write_csv('Filtered_Tag_710333A_Sept')
+#df = pd.read_csv('Tag_710333A_20_Sept.csv')
+#df.head = df.head(23)
+#print (df.columns)
+#header_row = 23
+#df = df.iloc[header_row]
+
+df.to_csv('modified_333A_Sept.csv', index=False)
+header_row = df.iloc[21]
+header_row.name = ''
+df = df[22:]
+df.columns = header_row
+df.reset_index(drop=True, inplace=True)
+print(df)
+
+#df = pd.read_csv('modified_333A_Sept')
+#df.reset_index(drop=True, inplace=True)
+#header_row = df.iloc[21]
+#print(df[21:])
+#df.rename(columns = header_row)
+#header = header_row
+#print(header_row)
+
+
+GPS_keep_col = list(['Acquisition Time', 'Acquisition Start Time', 'GPS Fix Time', 'GPS Fix Attempt', 'GPS Latitude', 'GPS Longitude'])
+GPS_df = df.drop(df[c for c in df.columns if~ c in GPS_keep_col])
+print(GPS_df)
+
+
+# confirme the headers name
+GPS_keep_col = list(['Acquisition Time', 'Acquisition Start Time', 'GPS Fix Time', 'GPS Fix Attempt', 'GPS Latitude', 'GPS Longitude'])
+GPS_df = df[[c for c in df.columns if c in GPS_keep_col]]
+Print(GPS_df)
+#drop columns, leave only GPS Data
+#df.drop(df.columns[
+# Convert Select Columns in Pandas Dataframe to Numpy Array
+
+___________________________________________________________________________________
+import pandas as pd
+import numpy as np
+
+#using excel_original file
+df_xlsx = pd.read_excel('..\Dati_Originali_Prof\Tag 710333A 20 Sept.xlsx')
+df_xlsx.to_csv('Tag_710333A_20_Sept.csv', index=False)
+
+#save and use csv_original file
+df = pd.read_csv('Tag_710333A_20_Sept.csv', index_col=False)
+
+#saving the modifications as new csv
+df.to_csv('modified_333A_Sept.csv', index=False)
+#input the header
+header_row = df.iloc[21]
+header_row.name = ''
+df = df[22:]
+df.columns = list(header_row)
+df.reset_index(drop=True, inplace=True)
+#print(df.columns)
+#print(df)
+
+# confirme the headers name
+GPS_keep_col = list(['Acquisition Time', 'Acquisition Start Time', 'GPS Fix Time', 'GPS Fix Attempt', 'GPS Latitude', 'GPS Longitude'])
+GPS_df = df[[c for c in df.columns if c in GPS_keep_col]]
+print(GPS_df)
+
+
+FUNCIONA
+___________________________________________________________________________________
+import pandas as pd
+import numpy as np
+
+#using excel_original file
+df_xlsx = pd.read_excel('..\Dati_Originali_Prof\Tag 710333A 20 Sept.xlsx')
+df_xlsx.to_csv('Tag_710333A_20_Sept.csv', index=False)
+
+#save and use csv_original file
+df = pd.read_csv('Tag_710333A_20_Sept.csv', index_col=False)
+
+
+#saving the modifications as new csv
+df.to_csv('modified_333A_Sept.csv', index=False)
+
+#input the header
+header_row = df.iloc[21]
+header_row.name = ''
+df = df[22:]
+df.drop(df.index[0:21])
+df.columns = list(header_row)
+df.reset_index(drop=True, inplace=True)
+
+GPS_keep_col = list(['Acquisition Time', 'Acquisition Start Time', 'GPS Fix Time', 'GPS Fix Attempt', 'GPS Latitude', 'GPS Longitude'])
+
+
+for c in df.columns: 
+	if c not in GPS_keep_col: 
+		df.drop(c, inplace=True, axis=1)
+	else:
+		GPS_keep_col.remove(c)
+		
+if GPS_keep_col:
+	print("Data missing!")
+	
+print(df.columns)
+
+df.to_csv('GPS_Data_333A_Sept.csv', index=False)
+
+
+
+___________________________________________________________________________________
+18/10
+import pandas as pd
+import numpy as np
+import pyproj as pj
+import datetime as dt
+
+#using excel_original file
+df_xlsx = pd.read_excel('..\Dati_Originali_Prof\Tag 710333A 20 Sept.xlsx')
+df_xlsx.to_csv('Tag_710333A_20_Sept.csv', index=False)
+
+#save and use csv_original file
+df = pd.read_csv('Tag_710333A_20_Sept.csv', index_col=False)
+
+#saving the modifications as new csv
+df.to_csv('modified_333A_Sept.csv', index=False)
+
+#set the line 23 as the header, but counting from 0 on df it's line 21:
+header_row = df.iloc[21] #take row 21
+header_row.name = '' # cancel the index columns to none
+df = df[22:] #filter the satellite informations on the firstlines
+df.drop(df.index[0:21]) #cancel those informations
+df.columns = list(header_row) #set the new header
+df.reset_index(drop=True, inplace=True) #reset index
+#print(df.columns) #see if line 21 is input as the new header (show all the columns)
+#print(df) #shoe the header plus your df
+
+#Control if the conditional below works:
+#data = [['tom', 10], ['nick', 15], ['juli', 14]] 
+#df = pd.DataFrame(data, columns = ['Name', 'Age'])
+
+#conditional to control the data:
+GPS_keep_col = list(['Acquisition Time', 'Acquisition Start Time', 'GPS Fix Time', 'GPS Fix Attempt', 'GPS Latitude', 'GPS Longitude'])
+
+for c in df.columns: 
+	if c not in GPS_keep_col: 
+		df.drop(c, inplace=True, axis=1)
+	else:
+		GPS_keep_col.remove(c)
+		
+if GPS_keep_col:
+	print("Data missing!")
+	
+#print(df.columns) #show the filtered columns
+
+df.to_csv('GPS_Data_333A_Sept.csv', index=False) #save as new file
+
+#not conditional column filter
+#GPS_keep_col = list.all(['Acquisition Time', 'Acquisition Start Time', 'GPS Fix Time', 'GPS Fix Attempt', 'GPS Latitude', 'GPS Longitude'])
+#GPS_df = df[[c for c in df.columns if c in GPS_keep_col]]
+
+#next step: create new columns, converting the coordinate system:
+# Define some common projections using EPSG codes 
+#from degree
+EPSG_4326 = pj.CRS("EPSG:4326") # LatLon with WGS84 datum used by GPS units and Google Earth 
+#to metre
+EPSG_3857 = pj.CRS("EPSG:3857") # 
+
+df.drop(df[~df['GPS Latitude'].notna()].index, inplace=True) # drop the rows that are null (NaN) from dataframe
+
+#print(df)
+latDegree = df[['GPS Latitude']].to_numpy() #create an array with all the elements that are inside that column #Convert the DataFrame to a NumPy array.
+lonDegree = df[['GPS Longitude']].to_numpy()
+
+#______________________________#not used
+lat3857, lon3857 = pj.transform(EPSG_4326, EPSG_3857, latDegree, lonDegree)                                                                                          
+
+df['lat3857'] = lat3857
+df['lon3857'] = lon3857
+#____________________________
+
+wgs84_geod = pj.Geod(ellps='WGS84') #Distance will be measured on this ellipsoid - more accurate than a spherical method
+
+distances = np.empty([len(latDegree)], dtype=np.float) #create an empty array, where I'm gonna to add the dist on the end
+
+i = 0
+while i < (len(latDegree)-1): # while the variable is lower than the total lenght minus 1 of the column, the loop will continue. the -1 is because the lenght has a total, but the start point is 0, so at end is different.
+	v1,v2,dist = wgs84_geod.inv(latDegree[i],lonDegree[i],latDegree[i+1],lonDegree[i+1]) #Take the second row and the first row on the count. it shoul give 3 values, but I only need the dist.
+	distances[i] = dist #Put the dist inside the distances variable once empty.
+	i += 1 #i=i+1 is the same. increase the i value to return to while and continue the loop until the i conditional.
+
+df['Length'] = distances #create a new column with the results in dist
+
+df.to_csv('GPS_Data_333A_Sept_Distances.csv', index=False) #save as new file
+
+#print(df)
+
+# Datetime 
+acquisitionTimes = df[['Acquisition Time']].to_numpy() #create an array with all the elements that are inside that column #the elements in that column are in str format. later on I'll need to change it.
+
+#First, create an empty variable, where I'm gonna to add the Seconds in Unix later. And the with the all the values in the variable, create a column with the seconds in Unix Time.
+unixDates = np.empty([len(acquisitionTimes)], dtype=np.float)
+
+#print(acquisitionTimes[0,0])
+i = 0
+while i < (len(acquisitionTimes)): #In this case, we don't need to stop before the last position; we need to stop at the last position, because we count only one i per row.
+	dateTimeObj = dt.datetime.strptime(acquisitionTimes[i,0], '%Y.%m.%d %H:%M:%S') #[i] is the position in an array
+	unixDates[i] = dateTimeObj.timestamp()
+	i += 1
+
+#df['Seconds in Unix Time'] = unixDates #create if you want a columns with the seconds
+#print (df)
+
+#print(df)
+#dateTimeStr = '2020.07.09 23:00:09' #esample
+#dateTimeObj = dt.datetime.strptime(dateTimeStr, '%Y.%m.%d %H:%M:%S') #esample
+#dateTimeObj.timestamp()
+#print(dateTimeObj)
+#print(dateTimeObj.timestamp())
+#datetime = dt()
+
+
+#calculate the velocity
+#v= d/t
+#v = Length/ Second2 - second1
+
+speeds =np.empty([len(unixDates)], dtype=np.float)
+
+i = 0
+while i < len(unixDates)-1:
+	speeds[i] = (distances[i] / (unixDates[i+1] - unixDates[i]))
+	i += 1
+
+df['Average Speed'] = speeds
+df.to_csv('GPS_Data_333A_Sept_Speeds.csv', index=False)
+print(df)
+
+
+________________________20/10
+
+import pandas as pd
+import numpy as np
+import pyproj as pj
+import datetime as dt
+
+def calculateDistance(geodRef, lat1, lon1, lat2, lon2):
+	v1,v2,dist = geodRef.inv(lat1,lon1,lat2,lon2) #Take the second row and the first row on the count. it shoul give 3 values, but I only need the dist.
+	return dist #Put the dist inside the distances variable once empty.
+	
+def convertUnixTimeFromString(timeString):
+	return dt.datetime.strptime(timeString, '%Y.%m.%d %H:%M:%S').timestamp() #[i] is the position in an array
+
+def calculateSpeed(d, t1, t2):
+	speed = d / (t2 - t1)
+	return speed
+
+
+def main():
+	#using excel_original file
+	df_xlsx = pd.read_excel('..\Dati_Originali_Prof\Tag 710333A 20 Sept.xlsx')
+	df_xlsx.to_csv('Tag_710333A_20_Sept.csv', index=False)
+
+	#use csv_original file
+	df = pd.read_csv('Tag_710333A_20_Sept.csv', index_col=False)
+	
+	#Remove/Change Header --------------------------------------
+	#set the line 23 as the header, but counting from 0 on df it's line 21:
+	header_row = df.iloc[21] #take row 21
+	header_row.name = '' # cancel the index columns to none
+	df = df[22:] #filter the satellite informations on the firstlines
+	df.drop(df.index[0:21]) #cancel those informations
+	df.columns = list(header_row) #set the new header
+	df.reset_index(drop=True, inplace=True) #reset index
+	#-----------------------------------------------------------
+	
+	df.to_csv('Dataframe_Overall_Tag_333A_Data.csv', index=False)
+	
+	#Remove not GPS columns ------------------------------------
+	#conditional to control the data:
+	GPS_keep_col = list(['Acquisition Time', 'Acquisition Start Time', 'GPS Fix Time', 'GPS Fix Attempt', 'GPS Latitude', 'GPS Longitude'])
+
+	for c in df.columns: 
+		if c not in GPS_keep_col: 
+			df.drop(c, inplace=True, axis=1)
+		else:
+			GPS_keep_col.remove(c)
+			
+	if GPS_keep_col:
+		print("Data missing!")
+	#-----------------------------------------------------------
+	
+	#Prepare Geod Object for Calculations ----------------------
+	#Geod is used as objec to calculate distances between points expressed in lat/lon (in degree)
+	wgs84_geod = pj.Geod(ellps='WGS84') #Distance will be measured on this ellipsoid - more accurate than a spherical method	
+	#-----------------------------------------------------------
+	
+	#Start business --------------------------------------------
+	# drop the rows that are null (NaN) from dataframe in the GPS Latitude / GPS Longitude columns
+	df.drop(df[~df['GPS Latitude'].notna()].index, inplace=True) 
+
+	#create an array with all the elements that are inside that column #Convert the DataFrame to a NumPy array.
+	latitudes = df[['GPS Latitude']].to_numpy() 
+	longitudes = df[['GPS Longitude']].to_numpy()
+	
+	#create an array with all the elements that are inside that column #the elements in that column are in str format. later on I'll need to change it.
+	acquisitionTimes = df[['Acquisition Time']].to_numpy() 
+	#-----------------------------------------------------------
+	
+	#Speeds holds
+	speeds = [] #empty list
+	indicesTimeToRemove = [] #empty list
+	i=0
+	while i < (len(latitudes)-1):
+		foundS = False
+		next = i+1
+		S = 100
+		#while----
+		while (S > 1.111) and (next < len(latitudes)):
+			D = calculateDistance(wgs84_geod,latitudes[i],longitudes[i],latitudes[next],longitudes[next])
+			t1 = convertUnixTimeFromString(acquisitionTimes[i,0])
+			t2 = convertUnixTimeFromString(acquisitionTimes[next,0])
+			S = calculateSpeed(D,t1,t2)
+#			print('D:'+str(D))
+#			print('t1:' + acquisitionTimes[i,0] + ' | t2:'+acquisitionTimes[next,0])
+#			print('SPEED:' + str(S))
+			if(S > 1.111):
+				indicesTimeToRemove.append(acquisitionTimes[next,0])
+				print('-----------------------')
+				print('Point to remove - INDEX '+ str(next))
+				print('TIME: '+ acquisitionTimes[next,0])
+				print('SPEED: '+ str(S))
+			else:
+				foundS = True
+			next+=1
+		#---------
+		if(foundS):
+			speeds.append(S)
+		i=next-1
+	speeds.append(0)
+		
+	df.drop(df[df['Acquisition Time'].isin(indicesTimeToRemove)].index, inplace=True) 
+	df['Average Speed m/s'] = speeds
+	df['Average Speed m/s'] = df['Average Speed m/s'].str[0] #remove the brackets of the values in the column
+	
+	df.to_csv('Filtered_points_by_speed_Tag_333A_Sept.csv', index=False)
+	#print(speeds)
+	#print(indicesToRemove)
+	
+if __name__== "__main__":
+	main()
+
+
+
+
+####
+
+#df.dropline(indice)
+
+#df['VELOCITà'] = speeds
